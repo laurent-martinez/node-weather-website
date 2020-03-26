@@ -14,7 +14,8 @@ const forecast = (latitude, longitude, callback) =>
         } else if (body.error) {
           callback('Unable to find location', undefined)
         } else {
-          callback(undefined, body.daily.data[0].summary+' La température extérieure est de '+ body.currently.temperature + ' degrés. Il y a '+ body.currently.precipProbability+'% de probabilité de pluie.')
+          console.log(body.daily.data)
+          callback(undefined,'La maximale sera de '+ body.daily.data[0].temperatureHigh + '°C  La minimale sera de ' + body.daily.data[0].temperatureLow + ' °C .    ' + body.daily.data[0].summary +' La température extérieure est de '+ body.currently.temperature + ' degrés. Il y a '+ body.currently.precipProbability+'% de probabilité de pluie.')
         }
           
       })
